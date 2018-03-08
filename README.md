@@ -1,5 +1,5 @@
 ## Point of Interest Project
-Repositório do projeto: -> [https://github.com/leonardo-mendes/xy-inc.git](https://github.com/leonardo-mendes/xy-inc.git)
+Repositório do projeto: -> https://github.com/leonardo-mendes/-xy-inc.git
 
 ### Instruções para execução do projeto
 - Clonar repositório.
