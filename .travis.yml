@@ -7,7 +7,9 @@ before_install:
 
 install:
 - mvn clean install
-- mvn cobertura:cobertura
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
 
 notifications:
 email:
@@ -15,6 +17,3 @@ recipients:
 - leonardocm92@hotmail.com
 on_success: always
 on_failure: always
-
-after_success:
-- bash <(curl -s https://codecov.io/bash)
