@@ -5,7 +5,9 @@ java:
 before_install:
 - chmod +x mvnw
 
-script: mvn clean install
+install:
+- mvn clean install
+- mvn cobertura:cobertura
 
 notifications:
 email:
@@ -13,3 +15,6 @@ recipients:
 - leonardocm92@hotmail.com
 on_success: always
 on_failure: always
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
