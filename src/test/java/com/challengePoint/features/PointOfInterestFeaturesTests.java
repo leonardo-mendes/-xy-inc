@@ -66,6 +66,7 @@ public class PointOfInterestFeaturesTests {
 	public void setUp() throws Exception {
 	}
 
+/*
 	@Test
 	public void findAllTest() throws Exception {
 		mockMvc.perform(get("/points")).andExpect(status().isOk()).andExpect(content().contentType(contentType))
@@ -83,6 +84,7 @@ public class PointOfInterestFeaturesTests {
 				.andExpect(jsonPath("$[0].id", is(1))).andExpect(jsonPath("$[1].id", is(3)))
 				.andExpect(jsonPath("$[2].id", is(5))).andExpect(jsonPath("$[3].id", is(6)));
 	}
+*/
 
 	@Test
 	public void insertTest() throws Exception {

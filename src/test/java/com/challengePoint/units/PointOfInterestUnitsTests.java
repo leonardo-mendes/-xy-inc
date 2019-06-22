@@ -35,10 +35,15 @@ public class PointOfInterestUnitsTests {
 	
 	@Test
 	public void testFindAll() {
+		PointOfInterest entity = new PointOfInterest();
+		entity.setName("PointTest");
+		entity.setX(50);
+		entity.setY(20);
+		pointService.insert(entity);
 		List<PointOfInterest> list = pointService.findAll();
 		
 		Assert.assertNotNull("failure - expected not null", list);
-		Assert.assertEquals("failure - expected size", 7, list.size());
+		Assert.assertEquals("failure - expected size", 1, list.size());
 	}
 	
     @Test
@@ -54,8 +59,6 @@ public class PointOfInterestUnitsTests {
         Assert.assertNotNull("failure - expected not null", point);
         Assert.assertNotNull("failure - expected id attribute not null",point.getId());
         Assert.assertEquals("failure - expected name attribute match", "PointTest", point.getName());
-        
-        pointRepository.delete(point.getId());
     }
     
     @Test(expected = ParametersException.class)
@@ -90,10 +93,15 @@ public class PointOfInterestUnitsTests {
     
     @Test
     public void testFindByCoordinates(){
+		PointOfInterest entity = new PointOfInterest();
+		entity.setName("PointTest");
+		entity.setX(20);
+		entity.setY(10);
+		pointService.insert(entity);
 		List<PointOfInterest> list = pointService.findByCoordenates(20, 10, 10);
 		
 		Assert.assertNotNull("failure - expected not null", list);
-		Assert.assertEquals("failure - expected size", 4, list.size());
+		Assert.assertEquals("failure - expected size", 1, list.size());
     }
 
 }
