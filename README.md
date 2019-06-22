@@ -1,29 +1,28 @@
 ## Point of Interest Project [![Build Status](https://travis-ci.org/leonardo-mendes/-xy-inc.svg?branch=master)](https://travis-ci.org/leonardo-mendes/-xy-inc) [![codecov](https://codecov.io/gh/leonardo-mendes/-xy-inc/branch/master/graph/badge.svg)](https://codecov.io/gh/leonardo-mendes/-xy-inc)
 
-#### Ferramentas necessárias
-- Java 8.
-- Docker-compose.
-- Maven.
+#### Necessary tools to execute the project
+- Java 8
+- Docker-compose
+- Maven
 
-#### Instruções para execução do projeto
-- Clonar [repositório](https://github.com/leonardo-mendes/-xy-inc).
-- Entrar no folder do projeto.
-- Executar o script abaixo.
+#### Executing the project
+- Clone the [repository](https://github.com/leonardo-mendes/-xy-inc)
+- Open the project folder
+- Execute the script <em>initChallenge.sh</em>
 
 ```
-sh initChallenge.sh - Obs: Checar se o container zup_xyinc esta executando (docker ps).
+sh initChallenge.sh - After the execution of script check the container zup/xyinc (docker ps).
 ```
 
+#### Documentation
 
-A aplicação default (*profile application-test.properties*) está configurada para rodar no **database H2** (DBMS), então não é necessário configurar banco de dados.
-
-> H2 is a **relational database** management system written in **Java**. It can be embedded in Java applications or run in the **client-server mode**.
-
-
-#### EndPoints
-
-A documentação da API está feita no swagger, com o container rodando acessar:
+This application use Swagger2, so after up the application image to look the endpoints, is necessary access:
 
 ```
 http://172.32.0.101:8080/swagger-ui.html
 ```
+
+##### Resources
+
+
+Java 8, H2 Database, Maven, Lombok, SpringBoot, Docker, Docker Compose, Junit, Mockito, Swagger2, Mapstruct.
