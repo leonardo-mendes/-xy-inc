@@ -1,4 +1,4 @@
-## Point of Interest Project
+## Point of Interest Project [![Build Status](https://travis-ci.org/leonardo-mendes/-xy-inc.svg?branch=master)](https://travis-ci.org/leonardo-mendes/-xy-inc)
 
 #### Ferramentas necessárias
 - Java 8.
