@@ -7,7 +7,7 @@ before_install:
 
 install:
 - mvn clean install
-- mvn cobertura:cobertura
+
 
 notifications:
 email:
