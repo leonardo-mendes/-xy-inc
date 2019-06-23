@@ -1,6 +1,8 @@
 ## Point of Interest Project [![Build Status](https://travis-ci.org/leonardo-mendes/-xy-inc.svg?branch=master)](https://travis-ci.org/leonardo-mendes/-xy-inc) [![codecov](https://codecov.io/gh/leonardo-mendes/-xy-inc/branch/master/graph/badge.svg)](https://codecov.io/gh/leonardo-mendes/-xy-inc)
 
-#### Necessary tools to execute the project
+This is an application challenge for Zup It Innovation, this challenge is to build an application to insert points of interest and retrieve them by filtering their shortest distance.
+
+#### Tools to execute the project
 - Java 8
 - Docker-compose
 - Maven
@@ -11,8 +13,8 @@
 - Execute the script <em>initChallenge.sh</em>
 
 ```
-sh initChallenge.sh - After the execution of script check the container zup/xyinc (docker ps).
-```
+sh initChallenge.sh - After script execution, please check the container zup/xyinc (docker ps).
+``` 
 
 #### Documentation
 

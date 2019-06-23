@@ -1,54 +1,40 @@
 package com.challengePoint.resources;
 
-import java.net.URI;
+import com.challengePoint.resources.request.PointOfInterestRequest;
+import com.challengePoint.resources.response.PointOfInterestResponse;
+import com.challengePoint.services.PointOfInterestService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import com.challengePoint.domains.PointOfInterest;
-import com.challengePoint.services.PointOfInterestService;
-
 @RestController
-@RequestMapping(value="/points")
+@RequestMapping(value = "/points")
 public class PointOfInterestResource {
-	
-	@Autowired
-	private PointOfInterestService service;
 
-	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<PointOfInterest>> findAll() {
-		List<PointOfInterest> listAll = service.findAll();
+    @Autowired
+    private PointOfInterestService service;
 
-		return ResponseEntity.ok().body(listAll);
-	}
-	
-	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insert(@RequestBody PointOfInterest point) {
-		PointOfInterest pointResponse = service.insert(point);
-		URI uri = ServletUriComponentsBuilder
-					.fromCurrentRequest().path("/{id}")
-						.buildAndExpand(pointResponse.getId()).toUri();
-		
-		return ResponseEntity.created(uri).build();
-	}
-	
-	
-	@RequestMapping(value = "/findByCoordenates", method = RequestMethod.GET)
-	public ResponseEntity<List<PointOfInterest>> findByCoordenates(
-			@RequestParam(value = "x") Integer x,
-			@RequestParam(value = "y") Integer y,
-			@RequestParam(value = "distance") Integer distance) {
-		
-		List<PointOfInterest> returnPoints = service.findByCoordenates(x, y, distance);
-		
-		return ResponseEntity.ok().body(returnPoints);
-	}
-	
+    @GetMapping
+    public ResponseEntity<List<PointOfInterestResponse>> findAll() {
+        return ResponseEntity.ok().body(service.findAll());
+    }
+
+    @PostMapping
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public void insert(@Valid @RequestBody PointOfInterestRequest point) {
+        service.insert(point);
+    }
+
+    @GetMapping(value = "/findByCoordenates")
+    public ResponseEntity<List<PointOfInterestResponse>> findByCoordenates(
+            @RequestParam(value = "x") Integer x,
+            @RequestParam(value = "y") Integer y,
+            @RequestParam(value = "distance") Integer distance) {
+        return ResponseEntity.ok().body(service.findByCoordenates(x, y, distance));
+    }
+
 }
