@@ -127,41 +127,6 @@ public class PointOfInterestFeaturesTests {
         this.mockMvc.perform(post("/points").contentType(contentType).content(poiJson)).andExpect(status().isCreated());
     }
 
-    @Test
-    public void shoudntInsertPointWithoutNameTest() throws Exception {
-        String poiJson = json(
-                PointOfInterestRequest.builder()
-                        .name("")
-                        .y(30)
-                        .x(30)
-                        .build()
-        );
-        this.mockMvc.perform(post("/points").contentType(contentType).content(poiJson))
-                .andExpect(status().isBadRequest());
-    }
-
-    @Test
-    public void shoudntInsertPointWithoutXTest() throws Exception {
-        String poiJson = json(
-                PointOfInterestRequest.builder()
-                        .name("Test Insert Poi")
-                        .y(30)
-                        .build()
-        );
-        this.mockMvc.perform(post("/points").contentType(contentType).content(poiJson)).andExpect(status().isBadRequest());
-    }
-
-    @Test
-    public void shoudntInsertPointWithoutYTest() throws Exception {
-        String poiJson = json(
-                PointOfInterestRequest.builder()
-                        .name("Test Insert Poi")
-                        .x(30)
-                        .build()
-        );
-        this.mockMvc.perform(post("/points").contentType(contentType).content(poiJson)).andExpect(status().isBadRequest());
-    }
-
     private String json(Object o) throws IOException {
         MockHttpOutputMessage mockHttpOutputMessage = new MockHttpOutputMessage();
         this.mappingJackson2HttpMessageConverter.write(o, MediaType.APPLICATION_JSON, mockHttpOutputMessage);
