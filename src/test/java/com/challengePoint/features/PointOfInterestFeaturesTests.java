@@ -131,6 +131,7 @@ public class PointOfInterestFeaturesTests {
     public void shoudntInsertPointWithoutNameTest() throws Exception {
         String poiJson = json(
                 PointOfInterestRequest.builder()
+                        .name("")
                         .y(30)
                         .x(30)
                         .build()
